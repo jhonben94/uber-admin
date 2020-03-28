@@ -1,0 +1,11 @@
+<nav aria-label="breadcrumb" >
+    <ol class="breadcrumb breadcrumb-principal">
+      
+      <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs; let last = last">
+        
+        <small><a *ngIf="!last && breadcrumb.label=='Inicio'" [routerLink]="breadcrumb.url"><i class="fas fa-home"></i></a></small>
+        <small><a *ngIf="!last && breadcrumb.label!='Inicio'" [routerLink]="breadcrumb.url">{{breadcrumb.label}}</a></small>
+        <small><span class="active-breadcrumb" *ngIf="last" [routerLink]="breadcrumb.url">{{breadcrumb.label}}</span></small>
+      </li>
+    </ol>
+  </nav>

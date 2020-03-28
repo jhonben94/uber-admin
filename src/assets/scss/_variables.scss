@@ -1,0 +1,58 @@
+// Import Bootstrap variables for use within theme
+@import "../../../node_modules/bootstrap/scss/functions.scss";
+@import "../../../node_modules/bootstrap/scss/variables.scss";
+
+// Import spacing variables
+@import "./variables/spacing.scss";
+
+// Import navigation variables
+@import "./variables/navigation.scss";
+
+
+/*-----------------------------BREADCUMB--------------------------------*/
+$breadcrumb-bg                   :transparent;
+$breadcrumb-color                :gray;
+$breadcrumb-hover-color          :#9F9D9D;
+$breadcrumb-item-color           :#9F9D9D ;
+$breadcrumb-item-hover-color     :rgb(36, 95, 172);
+$breadcrumb-active-color         :#2D4F66;
+$breadcrumb-active-hover-color   :#2D4F66;
+$breadcrumb-divider: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0yLjUgMEwxIDEuNSAzLjUgNCAxIDYuNSAyLjUgOGw0LTQtNC00eiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+);
+
+.breadcrumb{
+    background-color: $breadcrumb-bg;
+    color: $breadcrumb-color;
+    padding: 0rem 1rem !important;
+    
+  }
+  .breadcrumb-principal {
+    margin-bottom: 10px !important;
+    font-size:1.3rem; 
+    font-weight:1000
+  }
+  .active-breadcrumb {
+    color:#2D4F66 !important;
+    font-weight:1000
+  }
+  .breadcrumb:hover{
+    color: $breadcrumb-hover-color;
+  }
+  .breadcrumb .breadcrumb-item a{
+    color: $breadcrumb-item-color;
+  }
+  .breadcrumb .breadcrumb-item a:hover{
+    color: $breadcrumb-item-hover-color;
+  }
+  .breadcrumb-item.active{
+    color: $breadcrumb-active-color;
+  }
+  .breadcrumb-item.active:hover{
+    color: $breadcrumb-active-hover-color;
+  }
+  .breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #b8b8b8;
+    content: "/";
+    
+  }
