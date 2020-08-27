@@ -9,56 +9,31 @@ export class SidebarService {
     this.menu =[
       {
         modulo:'Parametricos',
-        iconoSubModulo:'address-book',
+        iconoModulo:'',
         moduloItems: [
           {
-              id:'forms',
-              subModulo : 'Forms & Table',
-              iconoSubModulo: 'fas fa-user',
-              subItems: [
-                {
-                  url:'/forms',
-                  icono:'fas fa-user',
-                  titulo:'Form'
-                },
-                {
-                  url:'/data-table',
-                  icono:'fas fa-address-card',
-                  titulo:'Table'
-                },
-              ]
-          },
-        ]
-      },
-   
-      {
-        modulo:'Servicios',
-        moduloItems: [
-          {
-              id:'submodulo2',
-              subModulo : 'SubModulo2',
-              iconoSubModulo:'fas fa-ad',
+              id:'cliente',
+              subModulo : 'Clientes',
               subItems: [
                 {
                   url:'',
-                  icono:'fas fa-ad',
-                  titulo:'Tipo Producto'
+                  icono:'address-card',
+                  titulo:'Agregar Cliente'
                 },
                 {
                   url:'',
-                  icono:'fas fa-alipay',
-                  titulo:'Tipo Documento'
+                  icono:'address-card',
+                  titulo:'Modificar Cliente'
                 },
                 {
                   url:'',
-                  icono:'fas fa-angle-double-left',
-                  titulo:'Categorias'
+                  icono:'address-card',
+                  titulo:'Listar Clientes'
                 }
               ]
           },
           {
             id:'submodulo3',
-            iconoSubModulo:'fas fa-adjust',
             subModulo : 'SubModulo3',
             subItems: [
               {
@@ -81,24 +56,56 @@ export class SidebarService {
 
         ]
       },
+   
       {
-        modulo:'modulon',
+        modulo:'Servicios',
+        iconoModulo:'',
         moduloItems: [
           {
-              id:'modulon',
-              iconoSubModulo:'fas fa-align-center',
-              subModulo : 'Modulo N',
+              id:'submodulo2',
+              subModulo : 'SubModulo2',
               subItems: [
                 {
-                  url:'add',
+                  url:'',
                   icono:'address-card',
-                  titulo:'Agregar Cliente'
+                  titulo:'Tipo Producto'
+                },
+                {
+                  url:'',
+                  icono:'address-card',
+                  titulo:'Tipo Documento'
+                },
+                {
+                  url:'',
+                  icono:'address-card',
+                  titulo:'Categorias'
                 }
               ]
+          },
+          {
+            id:'submodulo3',
+            subModulo : 'SubModulo3',
+            subItems: [
+              {
+                url:'',
+                icono:'address-card',
+                titulo:'Tipo Producto'
+              },
+              {
+                url:'',
+                icono:'address-card',
+                titulo:'Tipo Documento'
+              },
+              {
+                url:'',
+                icono:'address-card',
+                titulo:'Categorias'
+              }
+            ]
           }
 
         ]
-      },
+      }
     ];
    }
    obtenerSideBar(){
