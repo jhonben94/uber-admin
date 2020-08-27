@@ -57,7 +57,7 @@ export class TablaBasicComponent implements OnInit {
       sortOrder: this.direction,
       filtros: JSON.stringify({})
     }    
-    this.service.listarRecurso(params).subscribe( (res:any) =>{
+    this.service.listarRecurso().subscribe( (res:any) =>{
 
         this.data$ = res.lista;
         this.total$ = res.total;
@@ -69,8 +69,6 @@ export class TablaBasicComponent implements OnInit {
     
   }
   cargarPagina(page){
-    console.log(page);
-
     if (page !== this.previousPage) {
       this.previousPage = page;
       this.buscar();

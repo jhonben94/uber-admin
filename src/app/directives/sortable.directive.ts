@@ -21,7 +21,7 @@ export class SortableHeader {
 
     constructor() { }
 
-  sortable: string;
+  @Input() sortable: string;
   @HostBinding('class.asc')  direction: SortDirection = '';
   @Output() sort = new EventEmitter<SortEvent>();
 

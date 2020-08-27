@@ -1,0 +1,131 @@
+<div class="container-fluid mt-4">
+    <div class="card border-0">
+      <div class="card-body " >
+        <button type="button" (click)="agregar()" class="btn btn-lg btn-primary float-right mx-1"> Agregar </button>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md">
+            <div class="card mb-4">
+                <div class="card-header"  data-toggle="collapse" data-target="#filtros"  aria-controls="collapseOne"><i class="fas fa-filter mr-1" ></i><strong>Opciones de Búsqueda</strong></div>
+                <div class="card-body " id="filtros">
+                   <div class="container-fluid">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md">
+                                <label for="nombre"><strong>Nombre(s)</strong></label>
+                                <input type="email" class="form-control" id="inputEmail4" placeholder="Nombre(s)">
+                            </div>
+                            <div class="form-group col-md">
+                                <label for="apellido"><strong>Apellido(s)</strong></label>
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Apellido(s)">
+                            </div>
+                            <div class="form-group col-md">
+                                <label for="inputPassword4"><strong>Usuario</strong></label>
+                                <input type="test" class="form-control" id="inputPassword5" placeholder="Usuario">
+                            </div>
+                            <div class="form-group col-md">
+                                <label for="inputState">Activo</label>
+                                <ng-select [items]="listaActivo"
+                                bindLabel="descripcion"
+                                bindValue="valor"
+                                placeholder="Seleccionar"
+
+                                >
+                                </ng-select>
+                              </div>
+                        </div>
+                        <div class="form-row">
+                          
+                          <div class="form-group col-md">
+                            <label for="inputZip"><strong>Teléfono</strong></label>
+                            <input type="text" class="form-control" id="inputZip"placeholder="Teléfono"> 
+                          </div>
+                          <div class="form-group col-md">
+                            <label for="inputCity"><strong>Documento</strong></label>
+                            <input type="text" class="form-control" id="inputCity"  placeholder="Documento">
+                          </div>
+                          <div class="form-group col-md">
+                            <label for="inputState"><strong>Tipo Documento</strong></label>
+                                <ng-select [items]="listaTipoDocumento"
+                                bindLabel="nombre"
+                                bindValue="id"
+                                placeholder="Seleccionar"
+                                >
+                                </ng-select>
+                          </div>
+                          <div class="form-group col-md">
+                            <label for="inputState"><strong>Sexo</strong></label>
+                                <ng-select [items]="listaSexo"
+                                bindLabel="descripcion"
+                                bindValue="valor"
+                                placeholder="Seleccionar"
+                                ></ng-select>
+                                
+                          </div>
+                        </div>                    
+                        <button (click)="buscar()" class="btn btn-primary float-right mx-1">Buscar</button>
+                        <button class="btn btn-secondary  float-right mx-1">Limpiar</button>
+                      </form>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header"  data-toggle="collapse" data-target="#tabla"   ><i class="fas fa-table mr-1"></i>Conductores</div>
+        <div class="card-body" id="tabla">
+        
+          <div class="container-fluid">
+        
+            <table mat-table [dataSource]="data" class="example-table"
+                   matSort matSortActive="idConductor" matSortDisableClear matSortDirection="desc">
+               <!-- Number Column -->
+               <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let row; let i = index;">{{i+1}}</td>
+              </ng-container>
+                <!-- definicion dinamica de las columnas -->
+                <ng-container  *ngFor="let columna of listaColumnas" [matColumnDef]="columna.matDef">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear><strong>{{columna.descripcion}}</strong></th>
+                  <td mat-cell *matCellDef="let row">{{mostrarCampo(row,columna)}}</td>
+                </ng-container>
+                <ng-container matColumnDef="sexo">
+                  <th mat-header-cell *matHeaderCellDef> <strong>SEXO</strong></th>
+                  <td mat-cell *matCellDef="let row; let i = index;">{{ row.sexo == 'M'?'MASCULINO':'FEMENINO'}}</td>
+                </ng-container>
+              
+              <!-- Accion Column -->
+              <ng-container matColumnDef="accion">
+                <th mat-header-cell *matHeaderCellDef >
+                  <strong>ACCIONES</strong>
+                </th>
+                <td mat-cell *matCellDef="let row"> 
+
+                  <button class="btn btn-default text-success" aria-hidden="true" ngbTooltip="Activar" >
+                    <span  data-action-type = "activar"  class="fas fa-check-circle fa-lg" aria-hidden="true"></span>
+                  </button>
+
+                  <button type="button" class="btn btn-default text-danger" aria-label="Left Align" ngbTooltip="Desactivar">
+                    <span class="fas fa-minus-circle fa-lg" aria-hidden="true"></span>
+                   </button>
+
+                   <button type="button" class="btn btn-default text-default" aria-label="Left Align" ngbTooltip="Editar">
+                    <span class="fas fa-edit fa-lg" aria-hidden="true"></span>
+                   </button>
+                   
+                  </td>
+              </ng-container>
+        
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="acciones(row,$event)"></tr>
+            </table>
+          </div>
+        
+          <mat-paginator [length]="resultsLength" [pageSizeOptions]="opcionPagina" showFirstLastButtons></mat-paginator>
+
+        </div>
+    </div>
+
+</div>

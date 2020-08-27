@@ -1,0 +1,168 @@
+<div class="container-fluid mt-4">
+    <div class="card border-0">
+      <div class="card-body " >
+        <button type="button" (click)="agregar()" class="btn btn-lg btn-primary float-right mx-1"> Agregar </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md">
+        <div class="card mb-4">
+          <div
+            class="card-header"
+            data-toggle="collapse"
+            data-target="#filtros"
+            aria-controls="collapseOne"
+          >
+            <i class="fas fa-filter mr-1"></i
+            ><strong>Opciones de Búsqueda</strong>
+          </div>
+          <div class="card-body" id="filtros">
+              <form [formGroup]="filtrosForm">
+                <div class="form-row">
+                  <div class="form-group col-md">
+                    <label ><strong>Nombre</strong></label>
+                    <input
+                      formControlName="nombre"
+                      type="text"
+                      class="form-control"
+                      id="inputEmail4"
+                      placeholder="Nombre"
+                    />
+                  </div>
+                  <div class="form-group col-md">
+                    <label ><strong>Código</strong></label>
+                    <input
+                      formControlName="codigo"
+                      type="text"
+                      class="form-control"
+                      id="inputPassword4"
+                      placeholder="Código"
+                    />
+                  </div>
+                  <div class="form-group col-md">
+                    <label for="inputState">Activo</label>
+                    <ng-select
+                      formControlName="activo"
+                      [items]="listaActivo"
+                      bindLabel="descripcion"
+                      bindValue="valor"
+                      placeholder="Seleccionar"
+                    >
+                    </ng-select>
+                  </div>
+                </div>
+  
+                <button
+                  (click)="buscar()"
+                  class="btn btn-primary float-right mx-1"
+                >
+                  Buscar
+                </button>
+                <button (click)="limpiar()" class="btn btn-secondary float-right mx-1">
+                  Limpiar
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card mb-4">
+      <div class="card-header" data-toggle="collapse" data-target="#tabla">
+        <i class="fas fa-table mr-1"></i>Datos
+      </div>
+      <div class="card-body" id="tabla">
+          <table
+            mat-table
+            [dataSource]="data"
+            class="example-table"
+            matSort
+            matSortActive="idTipoDocumento"
+            matSortDisableClear
+            matSortDirection="asc"
+          >
+            <!-- Number Column -->
+            <ng-container matColumnDef="number">
+              <th mat-header-cell *matHeaderCellDef>#</th>
+              <td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
+            </ng-container>
+            <!-- definicion dinamica de las columnas -->
+            <ng-container
+              *ngFor="let columna of listaColumnas"
+              [matColumnDef]="columna.matDef"
+            >
+              <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                <strong>{{ columna.descripcion }}</strong>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                {{ mostrarCampo(row, columna) }}
+              </td>
+            </ng-container>
+  
+            <!-- Accion Column -->
+            <ng-container matColumnDef="accion">
+              <th mat-header-cell *matHeaderCellDef>
+                <strong>ACCIONES</strong>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <button
+                *ngIf="!validarAcciones(row)"
+                  class="btn btn-default text-success"
+                  aria-hidden="true"
+                  ngbTooltip="Activar"
+                  (click)="acciones(row,'activar')"
+                >
+                  <span
+                    data-action-type="activar"
+                    class="fas fa-check-circle fa-lg"
+                  ></span>
+                </button>
+  
+                <button
+                *ngIf="validarAcciones(row)"
+  
+                  type="button"
+                  class="btn btn-default text-danger"
+                  aria-label="Left Align"
+                  ngbTooltip="Desactivar"
+                  (click)="acciones(row,'desactivar')"
+                >
+                  <span
+                  data-action-type="desactivar"
+                    class="fas fa-minus-circle fa-lg"
+                    aria-hidden="true"
+                  ></span>
+                </button>
+
+               
+  
+                <button
+                *ngIf="validarAcciones(row)"
+                  type="button"
+                  class="btn btn-default text-default"
+                  aria-label="Left Align"
+                  ngbTooltip="Editar"
+                  (click)="acciones(row,'editar')"
+                >
+                  <span class="fas fa-edit fa-lg" aria-hidden="true"></span>
+                </button>
+
+        
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+            ></tr>
+          </table>
+        <mat-paginator
+          [length]="resultsLength"
+          [pageSizeOptions]="opcionPagina"
+          showFirstLastButtons
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+  

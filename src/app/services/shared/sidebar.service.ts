@@ -7,105 +7,95 @@ export class SidebarService {
   menu =[];
   constructor() {
     this.menu =[
+
       {
-        modulo:'Parametricos',
-        iconoModulo:'',
+        modulo:'Personas',
+        iconoSubModulo:'user-friends',
         moduloItems: [
           {
-              id:'cliente',
-              subModulo : 'Clientes',
+              id:'gestion_personas',
+              subModulo : 'Gestión Personas',
+              iconoSubModulo: 'fas fa-user-friends',
               subItems: [
                 {
-                  url:'',
-                  icono:'address-card',
-                  titulo:'Agregar Cliente'
+                  url:'/conductores',
+                  icono:'fas fa-user',
+                  titulo:'Conductores'
                 },
                 {
-                  url:'',
-                  icono:'address-card',
-                  titulo:'Modificar Cliente'
-                },
-                {
-                  url:'',
-                  icono:'address-card',
-                  titulo:'Listar Clientes'
+                  url:'/titulares',
+                  icono:'fas fa-user-cog',
+                  titulo:'Titulares'
                 }
               ]
           },
-          {
-            id:'submodulo3',
-            subModulo : 'SubModulo3',
-            subItems: [
-              {
-                url:'',
-                icono:'address-card',
-                titulo:'Tipo Producto'
-              },
-              {
-                url:'',
-                icono:'address-card',
-                titulo:'Tipo Documento'
-              },
-              {
-                url:'',
-                icono:'address-card',
-                titulo:'Categorias'
-              }
-            ]
-          }
+        ]
+      },
 
+
+      
+      {
+        modulo:'Parametricos',
+        iconoSubModulo:'address-archive',
+        moduloItems: [
+          {
+              id:'forms',
+              subModulo : 'Definiciones',
+              iconoSubModulo: 'fas fa-archive  fa-lg',
+              subItems: [
+                {
+                  url:'/tipo-documento',
+                  icono:'fas fa-address-card  fa-lg',
+                  titulo:'Tipo Documento'
+                },
+                {
+                  url:'/marcas',
+                  icono:'fas fa-barcode fa-lg',
+                  titulo:'Marcas'
+                },
+                {
+                  url:'/modelos',
+                  icono:'fas fa-sitemap  fa-lg',
+                  titulo:'Modelos'
+                },
+                {
+                  url:'/modelo',
+                  icono:'fas fa-car  fa-lg',
+                  titulo:'Vehículos'
+                },
+              ]
+          },
         ]
       },
    
       {
-        modulo:'Servicios',
-        iconoModulo:'',
+        modulo:'Seguridad',
+        iconoSubModulo:'user-friends',
         moduloItems: [
           {
-              id:'submodulo2',
-              subModulo : 'SubModulo2',
+              id:'seguridad',
+              subModulo : 'Gestión Seguridad ',
+              iconoSubModulo: 'fas fa-shield-alt  fa-lg',
               subItems: [
                 {
-                  url:'',
-                  icono:'address-card',
-                  titulo:'Tipo Producto'
+                  url:'/permisos',
+                  icono:'fas fa-file-signature  fa-lg',
+                  titulo:'Permisos'
                 },
                 {
-                  url:'',
-                  icono:'address-card',
-                  titulo:'Tipo Documento'
+                  url:'/roles',
+                  icono:'fas fa-user-lock  fa-lg',
+                  titulo:'Roles'
                 },
                 {
-                  url:'',
-                  icono:'address-card',
-                  titulo:'Categorias'
-                }
+                  url:'/usuarios',
+                  icono:'fas fa-user-shield  fa-lg',
+                  titulo:'Usuarios'
+                },
               ]
           },
-          {
-            id:'submodulo3',
-            subModulo : 'SubModulo3',
-            subItems: [
-              {
-                url:'',
-                icono:'address-card',
-                titulo:'Tipo Producto'
-              },
-              {
-                url:'',
-                icono:'address-card',
-                titulo:'Tipo Documento'
-              },
-              {
-                url:'',
-                icono:'address-card',
-                titulo:'Categorias'
-              }
-            ]
-          }
-
         ]
-      }
+      },
     ];
    }
    obtenerSideBar(){

@@ -1,0 +1,42 @@
+
+
+ <div class="modal-header">
+    <h5 class="modal-title">{{title}}</h5>
+    <button type="button" class="close" (click)="dismiss()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    {{ message }}
+  <form [formGroup]="form">
+    <div class="form-group">
+        <label for="descripcion"><strong>Código</strong></label>
+        <input
+          class="text-uppercase"
+          formControlName="codigo"
+          type="text"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="Código"
+        />
+      </div>  
+
+      <div class="form-group">
+        <label for="nombre"><strong>Nombre</strong></label>
+        <input
+          required
+          formControlName="nombre"
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="Nombre"
+        />
+      </div>
+     
+</form>
+
+  <div class="modal-footer">
+      <button  (click)="decline()" class="btn btn-secondary" > {{ btnCancelText }}</button>
+      <button  [disabled]="!form.valid" (click)="accept()" class="btn btn-primary " > {{ btnOkText }}</button>
+  </div>
+  
