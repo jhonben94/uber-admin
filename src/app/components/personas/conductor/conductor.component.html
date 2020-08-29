@@ -1,7 +1,7 @@
 <div class="container-fluid mt-4">
     <div class="card border-0">
       <div class="card-body " >
-        <button type="button" (click)="agregar()" class="btn btn-lg btn-primary float-right mx-1"> Agregar </button>
+        <button type="button" (click)="agregar()" class="btn btn-lg btn-primary float-right mx-1" (click)="agregar()"> Agregar </button>
       </div>
     </div>
     <div class="row">
@@ -25,7 +25,7 @@
                                 <input type="test" class="form-control" id="inputPassword5" placeholder="Usuario">
                             </div>
                             <div class="form-group col-md">
-                                <label for="inputState">Activo</label>
+                                <label for="inputState"><strong>Activo</strong></label>
                                 <ng-select [items]="listaActivo"
                                 bindLabel="descripcion"
                                 bindValue="valor"

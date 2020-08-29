@@ -1,0 +1,69 @@
+<div class="container-fluid mt-4">
+    <div class="card mb-4">
+        <div class="card-header"  data-toggle="collapse" data-target="#filtros"  aria-controls="collapseOne"><i class="fas fa-filter mr-1" ></i><strong>Formulario</strong></div>
+        <div class="card-body " id="filtros">
+           <div class="container-fluid">
+            <form [formGroup]="form">
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label for="nombre"><strong>Nombre(s)</strong></label>
+                        <input type="text" class="form-control" placeholder="Nombre(s)"  formControlName="nombres" >
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="apellido"><strong>Apellido(s)</strong></label>
+                        <input type="text" class="form-control" placeholder="Apellido(s)"  formControlName="apellidos">
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="inputPassword4"><strong>Usuario</strong></label>
+                        <input type="text" class="form-control"  placeholder="Usuario"  formControlName="usuario" >
+                    </div>
+                    <div class="form-group col-md">
+                        <label for="inputState"><strong>Activo</strong></label>
+                        <ng-select [items]="listaActivo"
+                        bindLabel="descripcion"
+                        bindValue="valor"
+                        placeholder="Seleccionar"
+                        formControlName="activo"
+                        >
+                        </ng-select>
+                      </div>
+                </div>
+                <div class="form-row">
+                  
+                  <div class="form-group col-md">
+                    <label for="inputZip"><strong>Teléfono</strong></label>
+                    <input type="text" class="form-control" placeholder="Teléfono"  formControlName="telefono"> 
+                  </div>
+                  <div class="form-group col-md">
+                    <label for="inputCity"><strong>Documento</strong></label>
+                    <input type="text" class="form-control" placeholder="Documento"  formControlName="documento">
+                  </div>
+                  <div class="form-group col-md">
+                    <label for="inputState"><strong>Tipo Documento</strong></label>
+                        <ng-select [items]="listaTipoDocumento"
+                        bindLabel="nombre"
+                        bindValue="idTipoDocumento"
+                        placeholder="Seleccionar"
+                        formControlName="idTipoDocumento"
+                        >
+                        </ng-select>
+                  </div>
+                  <div class="form-group col-md">
+                    <label for="inputState"><strong>Sexo</strong></label>
+                        <ng-select [items]="listaSexo"
+                        bindLabel="descripcion"
+                        bindValue="valor"
+                        placeholder="Seleccionar"
+                        formControlName="sexo"
+
+                        ></ng-select>
+                        
+                  </div>
+                </div>                    
+                <button  class="btn btn-primary float-right mx-1"  [disabled]="!form.valid"  (click)="guardar()" >Guardar</button>
+                <button class="btn btn-secondary  float-right mx-1"  >Limpiar</button>
+              </form>
+           </div>
+        </div>
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { TipoDocumentoComponent } from './components/parametrico/tipo-documento/
 import { MarcaComponent } from './components/parametrico/marca/marca.component';
 import { ModeloComponent } from './components/parametrico/modelo/modelo.component';
 import { TitularComponent } from './components/personas/titular/titular.component';
+import { ConductorEditComponent } from './components/personas/conductor/conductor-edit.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
         path: 'conductores', data: { title: 'Conductores' },
         children: [
           { path: '', component: ConductorComponent, data: { title: 'Listado' } },
+          { path: 'agregar', component: ConductorEditComponent, data: { title: 'Agregar' } },
         ]
       },
       {

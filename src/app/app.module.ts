@@ -42,6 +42,7 @@ import { TipoDocumentoComponent } from './components/parametrico/tipo-documento/
 import { TipoDocumentoEditComponent } from './components/parametrico/tipo-documento/tipo-documento-edit.component';
 import { MarcaEditComponent } from './components/parametrico/marca/marca-edit.component';
 import { ModeloEditComponent } from './components/parametrico/modelo/modelo-edit.component';
+import { ConductorEditComponent } from './components/personas/conductor/conductor-edit.component';
 
 
 
@@ -69,7 +70,8 @@ import { ModeloEditComponent } from './components/parametrico/modelo/modelo-edit
     TipoDocumentoComponent,
     TipoDocumentoEditComponent,
     MarcaEditComponent,
-    ModeloEditComponent
+    ModeloEditComponent,
+    ConductorEditComponent
     
   ],
   imports: [

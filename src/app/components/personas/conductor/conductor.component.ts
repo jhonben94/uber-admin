@@ -8,6 +8,7 @@ import { deleteEmptyData, CANTIDAD_PAG_LIST, CANTIDAD_PAG_DEFAULT } from '../../
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-conductor',
   templateUrl: './conductor.component.html',
@@ -39,6 +40,8 @@ data: any[] = [];
 @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 @ViewChild(MatSort, {static: true}) sort: MatSort;
 @BlockUI() blockUI: NgBlockUI;
+
+
 
   listaActivo: any[] = [
     {
@@ -125,6 +128,7 @@ data: any[] = [];
 
 
   constructor(
+    private router: Router,
     private mensaje : MensajesService,
     private service: ConductoresService,
     private fb : FormBuilder,
@@ -137,6 +141,17 @@ data: any[] = [];
       apellidos: [''],
       documento:[''],
       idTipoDocuemnto:[null],
+      sexo:[null],
+      activo:[null],
+      usuario:[''],
+      telefono:['']
+    });
+
+    this.filtrosForm = this.fb.group({
+      nombres: [''],
+      apellidos: [''],
+      documento:[''],
+      idTipoDocumento:[null],
       sexo:[null],
       activo:[null],
       usuario:[''],
@@ -230,7 +245,8 @@ data: any[] = [];
     }
   }
   agregar(){
-
+      this.router.navigate(['/conductores/agregar']);
   }
+
 
 }
